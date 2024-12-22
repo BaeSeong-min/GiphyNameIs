@@ -9,7 +9,11 @@ cursorInfo.style.display = 'none'; // 기본적으로 숨김
 document.body.appendChild(cursorInfo);
 
 require('dotenv').config();
-const apiKey = process.env.GIPHY_API_KEY;
+//console.log('ccccccccccccccccccccc');
+//console.log(apiKey);
+// const apiKey = process.env.GIPHY_API_KEY;
+
+const apiKey = 'XYyJPm63rKmY95mk831lzycpmMPcRONH';
 
 const giphyCache = {};
 
