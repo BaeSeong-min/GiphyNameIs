@@ -8,12 +8,12 @@ cursorInfo.style.pointerEvents = 'none';
 cursorInfo.style.display = 'none'; // 기본적으로 숨김
 document.body.appendChild(cursorInfo);
 
-require('dotenv').config();
+//require('dotenv').config();
 //console.log('ccccccccccccccccccccc');
 //console.log(apiKey);
 // const apiKey = process.env.GIPHY_API_KEY;
 
-const apiKey = 'XYyJPm63rKmY95mk831lzycpmMPcRONH';
+const apiKey = 'DVgXQ9PUpNOvNj0izZFwWfRymP9DQttS';
 
 const giphyCache = {};
 
@@ -26,7 +26,7 @@ document.addEventListener('mousemove', (event) => {
     cursorInfo.style.left = `${x + 15}px`;
     cursorInfo.style.top = `${y + 15}px`;
 
-    if (elementUnderCursor.tagName === "IMG") {
+    if (elementUnderCursor && elementUnderCursor.tagName === "IMG") {
         const imageSrc = elementUnderCursor.src;
 
         let giphyID = extractGiphyId(imageSrc);
