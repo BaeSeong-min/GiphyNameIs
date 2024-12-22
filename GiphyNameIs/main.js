@@ -1,5 +1,3 @@
-console.log("aaaaaaaaaaaaa");
-
 const cursorInfo = document.createElement('div');
 cursorInfo.style.position = 'fixed';
 cursorInfo.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
@@ -11,6 +9,8 @@ document.body.appendChild(cursorInfo);
 
 require('dotenv').config();
 const apiKey = process.env.GIPHY_API_KEY;
+
+const giphyCache = {};
 
 document.addEventListener('mousemove', (event) => {
     const x = event.clientX;
@@ -27,15 +27,19 @@ document.addEventListener('mousemove', (event) => {
         let giphyID = extractGiphyId(imageSrc);
 
         if (giphyID) {
-            cursorInfo.textContent = `Mouse is over an image: ${giphyID}`;
-            let giphyName = getGiphyName(giphyID)
-            
-            if(giphyName) { // API 요청
-                cursorInfo.textContent = `${giphyName}`;
-            }
+            //cursorInfo.textContent = `Mouse is over an image: ${giphyID}`;
+            if (!giphyCache[giphyID]) { // 캐시에 데이터가 없는 경우에만 API 요청청
+                let giphyName = getGiphyName(giphyID);
 
+                if(giphyName) { // API 요청
+                    cursorInfo.textContent = `${giphyName}`;
+                }
+                else {
+                    cursorInfo.textContent = '`${giphyName} GiphyID는 잘 받았는데 api로 못 가져옴';
+                }
+            }
             else {
-                cursorInfo.textContent = '`${giphyName} GiphyID는 잘 받았는데 api로 못 가져옴';
+                cursorInfo.textContent = `${giphyCache[giphyID]}`
             }
         }
         else {
@@ -60,10 +64,8 @@ function getGiphyName(giphyID) {
   .then(response => response.json())
   .then(data => {
     // JSON 데이터에서 GIF 이름과 제목 가져오기
-    console.log(data);
     const giphyName = data.data.title; // GIF의 이름
-    //console.log(`Giphy Name: ${giphyName}`);
-    console.log(`Giphy Name: ${giphyName}`);
+    giphyCache[giphyID] = giphyName; // 캐시 저장
     return giphyName;
   })
   .catch(error => {
