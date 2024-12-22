@@ -5,6 +5,7 @@ cursorInfo.style.color = 'white';
 cursorInfo.style.padding = '5px';
 cursorInfo.style.borderRadius = '5px';
 cursorInfo.style.pointerEvents = 'none';
+cursorInfo.style.display = 'none'; // 기본적으로 숨김
 document.body.appendChild(cursorInfo);
 
 require('dotenv').config();
@@ -28,24 +29,30 @@ document.addEventListener('mousemove', (event) => {
 
         if (giphyID) {
             //cursorInfo.textContent = `Mouse is over an image: ${giphyID}`;
-            if (!giphyCache[giphyID]) { // 캐시에 데이터가 없는 경우에만 API 요청청
+            if (!giphyCache[giphyID]) { // 캐시에 데이터가 없는 경우에만 API 요청
                 let giphyName = getGiphyName(giphyID);
 
                 if(giphyName) { // API 요청
                     cursorInfo.textContent = `${giphyName}`;
+                    cursorInfo.style.display = 'block'; // div 보이기
                 }
+                /*
                 else {
                     cursorInfo.textContent = '`${giphyName} GiphyID는 잘 받았는데 api로 못 가져옴';
-                }
+                }*/
             }
             else {
                 cursorInfo.textContent = `${giphyCache[giphyID]}`
+                cursorInfo.style.display = 'block'; // div 보이기
             }
         }
         else {
             console.log("얘는 이미진데 GIPHY 아님.");
+            cursorInfo.style.display = 'none'; // GIPHY가 아니면 숨김
         }
-        
+    }
+    else {
+        cursorInfo.style.display = 'none'; // 이미지가 아니면 숨김
     }
 });
 
