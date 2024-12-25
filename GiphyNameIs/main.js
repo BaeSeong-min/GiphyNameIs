@@ -25,7 +25,6 @@ document.addEventListener('mousemove', (event) => {
         let giphyID = extractGiphyId(imageSrc);
 
         if (giphyID) {
-            //cursorInfo.textContent = `Mouse is over an image: ${giphyID}`;
             if (!giphyCache[giphyID]) { // 캐시에 데이터가 없는 경우에만 API 요청
                 let giphyName = getGiphyName(giphyID);
 
@@ -40,8 +39,7 @@ document.addEventListener('mousemove', (event) => {
             }
         }
         else {
-            console.log("얘는 이미진데 GIPHY 아님.");
-            cursorInfo.style.display = 'none'; // GIPHY가 아니면 숨김
+            cursorInfo.style.display = 'none'; // 이미지이지만, GIPHY가 아니면 숨김
         }
     }
     else {
@@ -81,18 +79,14 @@ function getGiphyName(giphyID) {
                 return;
             }
     
-            console.log(`Giphy API Key: ${apiKey}`);
-    
             // Giphy API 호출 
             const response = await fetch(
                 `https://api.giphy.com/v1/gifs/${giphyID}?api_key=${apiKey}`
             );
             const data = await response.json();
-            console.log(data);
 
             // JSON 데이터에서 GIF 이름과 제목 가져오기
             const giphyName = data.data.title; // GIF의 이름
-            console.log(giphyName);
             giphyCache[giphyID] = giphyName; // 캐시 저장
             return giphyName;
         } catch (error) {

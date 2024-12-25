@@ -3,8 +3,11 @@
     "description": "Giphy 이름을 알려주는 확장 도구입니다.",
     "version": "1.0",
     "manifest_version": 3,
+    "icons": {
+        "48": "icons/GniLogo.jpg"
+    },
     "action": {
-        "default_popup": "main.html"
+        "default_icon": "icons/GniLogo.jpg"
     },
     "background": {
         "service_worker": "apikey.js"
