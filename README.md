@@ -24,7 +24,7 @@
 | CSS               | JavaScript를 통해 요소 스타일링.       |
 | JavaScript | 사용자 이벤트(마우스 이동 등) 처리 및 Instagram 페이지의 DOM과 상호작용.       |
 
-
+</br>
 
 ### 🚀백엔드 (Backend)
 | 기술              | 설명                                    |
@@ -33,6 +33,8 @@
 | Chrome Extensions Storage API & Background Script               | 확장 도구 설치 시 GIPHY API 키를 Chrome의 sync 스토리지에 저장하고 관리.       |
 
 * 참조: 추출한 GIPHY 이미지의 ID와 API KEY를 사용해 GIPHY 서버에 정보를 요청하고, 반환된 JSON 데이터를 처리합니다.
+
+<br/>
 
 ### 🚀개발 도구 (Development Tools)
 <p>
