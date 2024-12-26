@@ -4,7 +4,7 @@
 
 ## 🧩프로젝트 소개
 'GiphyNameIs'는 인스타그램에서 사용된 **Giphy 이미지의 이름을 알려주는 크롬 확장 프로그램**입니다. </br>
-사용자가 마우스 커서를 Giphy 이미지 위에 올리면, 해당 이미지의 이름을 화면에 표시해줍니다. 이를 통해 사용자는 자신이 사용하고 싶은 Giphy 이미지의 이름을 간편하게 얻어 사용할 수 있습니다.
+사용자가 **마우스 커서를 Giphy 이미지 위에 올리면, 해당 이미지의 이름을 화면에 표시**해줍니다. 이를 통해 사용자는 자신이 사용하고 싶은 Giphy 이미지의 이름을 간편하게 얻어 사용할 수 있습니다.
 <br/></br>
 <img width="325" alt="스크린샷 2024-12-25 225950" src="https://github.com/user-attachments/assets/c55a9e38-0e4d-4067-bd87-507c450a4cee" />
 
@@ -31,6 +31,8 @@
 |-------------------|---------------------------------------|
 | GIPHY API              | GIPHY 이름을 비롯한 정보를 가져오기 위한 API.        |
 | Chrome Extensions Storage API & Background Script               | 확장 도구 설치 시 GIPHY API 키를 Chrome의 sync 스토리지에 저장하고 관리.       |
+
+* 참조: 추출한 GIPHY 이미지의 ID와 API KEY를 사용해 GIPHY 서버에 정보를 요청하고, 반환된 JSON 데이터를 처리합니다.
 
 ### 🚀개발 도구 (Development Tools)
 <p>
